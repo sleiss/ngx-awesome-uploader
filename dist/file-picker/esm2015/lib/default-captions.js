@@ -1,0 +1,16 @@
+export const DefaultCaptions = {
+    dropzone: {
+        title: 'Drag and drop file here',
+        or: 'or',
+        browse: 'Browse Files'
+    },
+    cropper: {
+        crop: 'Crop',
+        cancel: 'Cancel'
+    },
+    previewCard: {
+        remove: 'Remove',
+        uploadError: 'Error on upload'
+    }
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZGVmYXVsdC1jYXB0aW9ucy5qcyIsInNvdXJjZVJvb3QiOiIvaG9tZS9zbGVpc3MvcHJvamVjdHMvbm9kZS9uZ3gtYXdlc29tZS11cGxvYWRlci9wcm9qZWN0cy9maWxlLXBpY2tlci9zcmMvIiwic291cmNlcyI6WyJsaWIvZGVmYXVsdC1jYXB0aW9ucy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQSxNQUFNLENBQUMsTUFBTSxlQUFlLEdBQXFCO0lBQzdDLFFBQVEsRUFBRTtRQUNOLEtBQUssRUFBRSx5QkFBeUI7UUFDaEMsRUFBRSxFQUFFLElBQUk7UUFDUixNQUFNLEVBQUUsY0FBYztLQUN6QjtJQUNELE9BQU8sRUFBRTtRQUNMLElBQUksRUFBRSxNQUFNO1FBQ1osTUFBTSxFQUFFLFFBQVE7S0FDbkI7SUFDRCxXQUFXLEVBQUU7UUFDVCxNQUFNLEVBQUUsUUFBUTtRQUNoQixXQUFXLEVBQUUsaUJBQWlCO0tBQ2pDO0NBQ0osQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFVwbG9hZGVyQ2FwdGlvbnMgfSBmcm9tICcuL3VwbG9hZGVyLWNhcHRpb25zJztcblxuZXhwb3J0IGNvbnN0IERlZmF1bHRDYXB0aW9uczogVXBsb2FkZXJDYXB0aW9ucyA9IHtcbiAgICBkcm9wem9uZToge1xuICAgICAgICB0aXRsZTogJ0RyYWcgYW5kIGRyb3AgZmlsZSBoZXJlJyxcbiAgICAgICAgb3I6ICdvcicsXG4gICAgICAgIGJyb3dzZTogJ0Jyb3dzZSBGaWxlcydcbiAgICB9LFxuICAgIGNyb3BwZXI6IHtcbiAgICAgICAgY3JvcDogJ0Nyb3AnLFxuICAgICAgICBjYW5jZWw6ICdDYW5jZWwnXG4gICAgfSxcbiAgICBwcmV2aWV3Q2FyZDoge1xuICAgICAgICByZW1vdmU6ICdSZW1vdmUnLFxuICAgICAgICB1cGxvYWRFcnJvcjogJ0Vycm9yIG9uIHVwbG9hZCdcbiAgICB9XG59O1xuIl19

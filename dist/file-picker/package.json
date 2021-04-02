@@ -1,0 +1,42 @@
+{
+  "name": "ngx-awesome-uploader",
+  "version": "10.0.2",
+  "description": "Angular Library for uploading files with Real-Time Progress bar, File Preview, Drag && Drop and Custom Template with Multi Language support",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0",
+    "@angular/core": " ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0"
+  },
+  "keywords": [
+    "ngx",
+    "angular",
+    "file uploader",
+    "angular file uploader",
+    "awesome uploader",
+    "drag and drop",
+    "image cropper",
+    "angular image uploader",
+    "angular uploader",
+    "angular file upload"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/vugar005/ngx-awesome-uploader",
+  "author": {
+    "name": "Vugar Abdullayev",
+    "url": "https://twitter.com/vugar005",
+    "email": "https://twitter.com/vugar005"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "homepage": "https://ngx-awesome-uploader.stackblitz.io/",
+  "main": "bundles/ngx-awesome-uploader.umd.js",
+  "module": "fesm2015/ngx-awesome-uploader.js",
+  "es2015": "fesm2015/ngx-awesome-uploader.js",
+  "esm2015": "esm2015/ngx-awesome-uploader.js",
+  "fesm2015": "fesm2015/ngx-awesome-uploader.js",
+  "typings": "ngx-awesome-uploader.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by Ivy. This is not allowed.\\nPlease delete and rebuild the package, without compiling with Ivy, before attempting to publish.\\n')\" && exit 1"
+  }
+}
