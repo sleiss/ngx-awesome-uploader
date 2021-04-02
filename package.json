@@ -1,7 +1,6 @@
 {
   "name": "@sleiss/ngx-awesome-uploader",
-  "repository": "git://github.com/sleiss/ngx-awesome-uploader.git",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
