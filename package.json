@@ -1,6 +1,6 @@
 {
   "name": "@sleiss/ngx-awesome-uploader",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -27,7 +27,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1002.0",
     "@angular-devkit/build-ng-packagr": "~0.1002.0",
-    "@angular/cli": "^10.2.0",
+    "@angular/cli": "^11.2.6",
     "@angular/compiler-cli": "^10.2.3",
     "@angular/language-service": "^10.2.3",
     "@types/jasmine": "~2.8.8",
