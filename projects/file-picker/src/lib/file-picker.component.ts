@@ -1,7 +1,8 @@
 import { FilePickerService } from './file-picker.service';
 import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
-  ElementRef,
   EventEmitter,
   Input,
   OnDestroy,
@@ -30,7 +31,8 @@ declare var Cropper;
 @Component({
   selector: 'ngx-awesome-uploader',
   templateUrl: './file-picker.component.html',
-  styleUrls: ['./file-picker.component.scss']
+  styleUrls: ['./file-picker.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FilePickerComponent implements OnInit, OnDestroy {
   /** Emitted when file upload via api successfully. Emitted for every file */
@@ -87,21 +89,26 @@ export class FilePickerComponent implements OnInit, OnDestroy {
   /** Current file to be shown in cropper */
   public currentCropperFile: File;
   public safeCropImgUrl: SafeResourceUrl;
+  public isCroppingBusy: boolean;
+
   private _cropClosed$ = new Subject<FilePreviewModel>();
   private _onDestroy$ = new Subject<void>();
+
   constructor(
     private fileService: FilePickerService,
-    private elementRef: ElementRef
+    private changeRef: ChangeDetectorRef
   ) {}
 
   public ngOnInit() {
     this._setCropperOptions();
     this._listenToCropClose();
   }
+
   public ngOnDestroy() {
     this._onDestroy$.next();
     this._onDestroy$.complete();
   }
+
   /** On input file selected */
   public onChange(event: File[]) {
     const files: File[] = Array.from(event);
@@ -183,6 +190,7 @@ export class FilePickerComponent implements OnInit, OnDestroy {
         }
       });
   }
+
   /** Sets custom cropper options if avaiable */
   private _setCropperOptions() {
     if (!this.cropperOptions) {
@@ -213,6 +221,7 @@ export class FilePickerComponent implements OnInit, OnDestroy {
       })
     );
   }
+
   /** Validates synchronous validations */
   private _validateFileSync(file: File): boolean {
     if (!file) {
@@ -289,14 +298,25 @@ export class FilePickerComponent implements OnInit, OnDestroy {
 
   /** Add file to file list after succesfull validation */
   pushFile(file: File, fileName = file.name): void {
-    this.files.push({ file, fileName });
+    const newFile = { file, fileName };
+    const files = [...this.files, newFile];
+    this.setFiles(files);
     this.fileAdded.next({ file, fileName });
+    this.changeRef.detectChanges();
   }
+
+  /** @description Set files for uploader */
+  public setFiles(files: FilePreviewModel[]): void {
+    this.files = files;
+    this.changeRef.detectChanges();
+  }
+
   /** Opens cropper for image crop */
   openCropper(file: File): void {
     if ((window as any).CROPPER  || typeof Cropper !== 'undefined') {
       this.safeCropImgUrl = this.fileService.createSafeUrl(file);
       this.currentCropperFile = file;
+      this.changeRef.detectChanges();
     } else {
       console.warn(
         "please import cropperjs script and styles to use cropper feature or disable it by setting [enableCropper]='false'"
@@ -310,17 +330,21 @@ export class FilePickerComponent implements OnInit, OnDestroy {
     const image = document.getElementById('cropper-img');
     this.cropper = new Cropper(image, this.cropperOptions);
   }
+
   /** Close or cancel cropper */
   closeCropper(filePreview: FilePreviewModel): void {
     this.currentCropperFile = undefined;
     this.cropper = undefined;
+    this.changeRef.detectChanges();
     setTimeout(() => this._cropClosed$.next(filePreview), 200);
   }
 
   /** Removes files from files list */
   removeFileFromList(file: FilePreviewModel): void {
-    this.files = this.files.filter(f => f.fileName !== file.fileName);
+    const files = this.files.filter(f => f.fileName !== file.fileName);
+    this.setFiles(files);
     this.fileRemoved.next(file);
+    this.changeRef.detectChanges();
   }
 
   /** Validates file extension */
@@ -334,6 +358,7 @@ export class FilePickerComponent implements OnInit, OnDestroy {
     }
     return true;
   }
+
   /** Validates selected file size and total file size */
   isValidSize(file: File, size: number): boolean {
     /** Validating selected file size */
@@ -369,10 +394,12 @@ export class FilePickerComponent implements OnInit, OnDestroy {
 
   /** when crop button submitted */
   onCropSubmit(): void {
+    this.isCroppingBusy = true;
     this.cropper
-      .getCroppedCanvas(this.croppedCanvasOptions)
-      .toBlob(this._blobFallBack.bind(this), 'image/png');
+    .getCroppedCanvas(this.croppedCanvasOptions)
+    .toBlob(this._blobFallBack.bind(this), 'image/png');
   }
+
   /** After crop submit */
   private _blobFallBack(blob: Blob): void {
     if (!blob) {
@@ -385,6 +412,8 @@ export class FilePickerComponent implements OnInit, OnDestroy {
       file: blob as File,
       fileName: this.currentCropperFile.name
     });
+    this.isCroppingBusy = false;
+    this.changeRef.detectChanges();
   }
 
 }
