@@ -22,6 +22,7 @@
   (change)="onChange(fileInput.files)"
   [accept]="accept"
   class="file-input"
+  [disabled]="disabled"
 />
 
 <div class="cropperJsOverlay" *ngIf="currentCropperFile">

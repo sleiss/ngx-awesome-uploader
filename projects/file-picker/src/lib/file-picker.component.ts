@@ -82,6 +82,8 @@ export class FilePickerComponent implements OnInit, OnDestroy {
   /** captions object */
   /** Whether to auto upload file on file choose or not. Default: true */
   @Input() enableAutoUpload = true;
+  /** Whether the file picker should be disabled */
+  @Input() disabled = false;
   cropper: any;
   public files: FilePreviewModel[] = [];
   /** Files array for cropper. Will be shown equentially if crop enabled */
@@ -157,6 +159,10 @@ export class FilePickerComponent implements OnInit, OnDestroy {
 
   /** Removes file from UI and sends api */
   public removeFile(fileItem: FilePreviewModel): void {
+    if (this.disabled) {
+      // Can not remove file when disabled
+      return;
+    }
     if (!this.enableAutoUpload) {
       this.removeFileFromList(fileItem);
       return;
@@ -204,6 +210,9 @@ export class FilePickerComponent implements OnInit, OnDestroy {
 
   /** Handles input and drag/drop files */
   handleFiles(files: File[]): Observable<void> {
+    if (this.disabled) {
+      return of(null);
+    }
     if (!this.isValidMaxFileCount(files)) {
       return of(null);
     }
