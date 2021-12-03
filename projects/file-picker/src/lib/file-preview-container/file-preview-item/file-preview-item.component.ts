@@ -37,14 +37,13 @@ export class FilePreviewItemComponent implements OnInit {
   ) {}
 
   public ngOnInit() {
-    if (this.fileItem.file) {
-      if (this.fileItem.uploadResponse) {
-        this.uploadResponse = this.fileItem.uploadResponse;
-      } else {
-        this._uploadFile(this.fileItem);
-      }
+    if (this.fileItem.uploadResponse) {
+      this.uploadResponse = this.fileItem.uploadResponse;
+    } else if (this.fileItem.file) {
+      this._uploadFile(this.fileItem);
       this.safeUrl = this.getSafeUrl(this.fileItem.file);
     }
+
     this.fileType = GET_FILE_TYPE(this.fileItem.fileName);
     this.isImageFile = IS_IMAGE_FILE(this.fileType);
   }
