@@ -31,7 +31,8 @@ export class DemoFilePickerComponent implements OnInit {
     },
     previewCard: {
       remove: 'Sil',
-      uploadError: 'Fayl yüklənmədi'
+      uploadError: 'Fayl yüklənmədi',
+      download: 'Lorem'
     }
   };
 

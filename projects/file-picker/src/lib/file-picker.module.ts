@@ -9,6 +9,7 @@ import { FileDropModule } from './file-drop/file-drop.module';
 import { PreviewLightboxComponent } from './file-preview-container/preview-lightbox/preview-lightbox.component';
 import { RefreshIconComponent } from './file-preview-container/file-preview-item/refresh-icon/refresh-icon.component';
 import { DownloadIconComponent } from './icons/download-icon/download-icon.component';
+import { CheckmarkIconComponent } from './icons/checkmark-icon/checkmark-icon.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -21,7 +22,8 @@ import { DownloadIconComponent } from './icons/download-icon/download-icon.compo
     PreviewLightboxComponent,
     RefreshIconComponent,
     CloseIconComponent,
-    DownloadIconComponent
+    DownloadIconComponent,
+    CheckmarkIconComponent
   ],
   exports: [FilePickerComponent],
   providers: [FilePickerService]

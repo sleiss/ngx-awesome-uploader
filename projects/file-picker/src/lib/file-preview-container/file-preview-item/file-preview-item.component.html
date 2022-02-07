@@ -20,9 +20,11 @@
           <div class="file-preview-size" *ngIf="fileItem?.file">{{niceBytes(fileItem.file?.size)}}</div>
         </div>
         <div class="file-preview-actions" >
-            <div class="ngx-checkmark-wrapper" *ngIf="!uploadError && !uploadProgress && fileItem?.uploadResponse">
-              <span class="ngx-checkmark"></span>
-            </div>
+            <a class="ngx-checkmark-icon-wrapper"
+            *ngIf="!uploadError && !uploadProgress && fileItem?.uploadResponse"
+            >
+              <checkmark-icon class="ngx-close-icon"></checkmark-icon>
+            </a>
             <refresh-icon *ngIf="uploadError" (click)="onRetry()"></refresh-icon>
             <a class="ngx-close-icon-wrapper"
                *ngIf="!uploadProgress && !uploadError"
