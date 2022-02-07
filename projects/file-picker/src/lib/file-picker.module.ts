@@ -8,6 +8,7 @@ import { FilePickerService } from './file-picker.service';
 import { FileDropModule } from './file-drop/file-drop.module';
 import { PreviewLightboxComponent } from './file-preview-container/preview-lightbox/preview-lightbox.component';
 import { RefreshIconComponent } from './file-preview-container/file-preview-item/refresh-icon/refresh-icon.component';
+import { DownloadIconComponent } from './icons/download-icon/download-icon.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -19,7 +20,8 @@ import { RefreshIconComponent } from './file-preview-container/file-preview-item
     FilePreviewItemComponent,
     PreviewLightboxComponent,
     RefreshIconComponent,
-    CloseIconComponent
+    CloseIconComponent,
+    DownloadIconComponent
   ],
   exports: [FilePickerComponent],
   providers: [FilePickerService]

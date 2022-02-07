@@ -67,6 +67,7 @@
     (removeFile)="removeFile($event)"
     (uploadSuccess)="onUploadSuccess($event)"
     (uploadFail)="onUploadFail($event)"
+    (downloadFile)="fileDownload.next($event)"
     [adapter]="adapter"
     [itemTemplate]="itemTemplate"
     [captions]="captions"

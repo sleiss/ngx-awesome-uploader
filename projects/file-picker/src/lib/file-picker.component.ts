@@ -47,6 +47,8 @@ export class FilePickerComponent implements OnInit, OnDestroy {
   @Output() readonly fileAdded = new EventEmitter<FilePreviewModel>();
   /** Emitted when file is removed from fileList */
   @Output() readonly fileRemoved = new EventEmitter<FilePreviewModel>();
+  /** Emitted when file should be downloaded */
+  @Output() readonly fileDownload = new EventEmitter<FilePreviewModel>();
   /** Custom validator function */
   @Input() customValidator: (file: File) => Observable<boolean>;
   /** Whether to enable cropper. Default: disabled */

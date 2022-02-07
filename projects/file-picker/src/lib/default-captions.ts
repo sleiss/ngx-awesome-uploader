@@ -12,6 +12,7 @@ export const DefaultCaptions: UploaderCaptions = {
     },
     previewCard: {
         remove: 'Remove',
-        uploadError: 'Error on upload'
+        uploadError: 'Error on upload',
+        download: 'Download'
     }
 };

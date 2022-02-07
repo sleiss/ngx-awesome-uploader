@@ -11,5 +11,6 @@ export interface UploaderCaptions {
     previewCard: {
         remove: string;
         uploadError: string;
+        download: string;
     };
 }

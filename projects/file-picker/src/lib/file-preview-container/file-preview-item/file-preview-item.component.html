@@ -25,6 +25,13 @@
             </div>
             <refresh-icon *ngIf="uploadError" (click)="onRetry()"></refresh-icon>
             <a class="ngx-close-icon-wrapper"
+               *ngIf="!uploadProgress && !uploadError"
+               (click)="onDownload(fileItem)"
+               title="{{captions?.previewCard?.download}}"
+            >
+              <download-icon class="ngx-close-icon"></download-icon>
+            </a>
+            <a class="ngx-close-icon-wrapper"
             (click)="onRemove(fileItem)"
              title="{{captions?.previewCard?.remove}}"
              >

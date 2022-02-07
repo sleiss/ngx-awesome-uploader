@@ -6,6 +6,7 @@
     (uploadSuccess)="uploadSuccess.next($event)"
     (uploadFail)="uploadFail.next($event)"
     (imageClicked)="openLightbox($event)"
+    (downloadFile)="downloadFile.next($event)"
     [itemTemplate]="itemTemplate"
     [adapter]="adapter"
     [captions]="captions"

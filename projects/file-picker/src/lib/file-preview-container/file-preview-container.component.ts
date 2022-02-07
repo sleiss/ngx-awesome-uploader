@@ -17,6 +17,7 @@ export class FilePreviewContainerComponent implements OnInit {
   @Output() public readonly removeFile = new EventEmitter<FilePreviewModel>();
   @Output() public readonly uploadSuccess = new EventEmitter<FilePreviewModel>();
   @Output() public readonly uploadFail = new EventEmitter<HttpErrorResponse>();
+  @Output() public readonly downloadFile = new EventEmitter<FilePreviewModel>();
   public lightboxFile: FilePreviewModel;
   @Input() adapter: FilePickerAdapter;
   @Input() captions: UploaderCaptions;

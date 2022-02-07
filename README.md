@@ -5,7 +5,7 @@
 ## Compile & publish
 ```
 ng build file-picker --prod
-npm publish dist/file-picker
+cd dist/file-picker && npm publish
 ```
 
 

@@ -19,6 +19,7 @@ export class FilePreviewItemComponent implements OnInit {
   @Output() public readonly uploadSuccess = new EventEmitter<FilePreviewModel>();
   @Output() public readonly uploadFail = new EventEmitter<HttpErrorResponse>();
   @Output() public readonly imageClicked = new EventEmitter<FilePreviewModel>();
+  @Output() public readonly downloadFile = new EventEmitter<FilePreviewModel>();
   @Input() public fileItem: FilePreviewModel;
   @Input() adapter: FilePickerAdapter;
   @Input() itemTemplate: TemplateRef<any>;
@@ -76,6 +77,13 @@ export class FilePreviewItemComponent implements OnInit {
       uploadResponse: this.uploadResponse
     });
    }
+
+  public onDownload(fileItem: FilePreviewModel): void {
+    this.downloadFile.next({
+      ...fileItem,
+      uploadResponse: this.uploadResponse
+    });
+  }
 
   private _uploadFile(fileItem: FilePreviewModel): void {
     if (!this.enableAutoUpload) {
