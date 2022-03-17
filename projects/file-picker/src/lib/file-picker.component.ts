@@ -421,7 +421,10 @@ export class FilePickerComponent implements OnInit, OnDestroy {
     if (!blob) {
       return;
     }
-    if (this.isValidSize(blob as File, blob.size)) {
+    // Cropping may actually increase the file size!
+    // FIX FOR NOW: Use the original file for the file size comparison & upload the cropped one
+    // if (this.isValidSize(blob as File, blob.size)) {
+    if (this.isValidSize(this.currentCropperFile, this.currentCropperFile.size)) {
       this.pushFile(blob as File, this.currentCropperFile.name);
     }
     this.closeCropper({
