@@ -4,13 +4,7 @@ import {FileComponent} from './file-drop.component';
 import { CloudIconComponent } from '../icons/cloud-icon/cloud-icon.component';
 
 @NgModule({
-  declarations: [
-    FileComponent,
-    CloudIconComponent
-  ],
   exports: [FileComponent],
-  imports: [CommonModule],
-  providers: [],
-  bootstrap: [FileComponent],
+  imports: [CommonModule, FileComponent, CloudIconComponent],
 })
 export class FileDropModule {}

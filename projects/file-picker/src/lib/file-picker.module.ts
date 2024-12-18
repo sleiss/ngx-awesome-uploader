@@ -14,16 +14,14 @@ import { CheckmarkIconComponent } from './icons/checkmark-icon/checkmark-icon.co
   imports: [
     CommonModule,
     FileDropModule,
-  ],
-  declarations: [
     FilePickerComponent,
-    FilePreviewContainerComponent,
     FilePreviewItemComponent,
+    FilePreviewContainerComponent,
     PreviewLightboxComponent,
     RefreshIconComponent,
     CloseIconComponent,
     DownloadIconComponent,
-    CheckmarkIconComponent
+    CheckmarkIconComponent,
   ],
   exports: [FilePickerComponent],
   providers: [FilePickerService]

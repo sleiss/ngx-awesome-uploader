@@ -16,6 +16,7 @@ import { GET_FILE_CATEGORY_TYPE } from './file-upload.utils';
 import { FileValidationTypes, ValidationError } from './validation-error.model';
 import { FilePickerAdapter } from './file-picker.adapter';
 import {
+  FileComponent,
   FileSystemDirectoryEntry,
   FileSystemFileEntry,
   UploadEvent
@@ -26,12 +27,20 @@ import { DefaultCaptions } from './default-captions';
 import { UploaderCaptions } from './uploader-captions';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DEFAULT_CROPPER_OPTIONS, BITS_TO_MB } from './file-picker.constants';
+import {NgClass, NgIf} from "@angular/common";
+import {FilePreviewContainerComponent} from "./file-preview-container/file-preview-container.component";
 
 declare var Cropper;
 @Component({
   selector: 'ngx-awesome-uploader',
   templateUrl: './file-picker.component.html',
   styleUrls: ['./file-picker.component.scss'],
+  imports: [
+    FileComponent,
+    NgClass,
+    FilePreviewContainerComponent,
+    NgIf
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FilePickerComponent implements OnInit, OnDestroy {

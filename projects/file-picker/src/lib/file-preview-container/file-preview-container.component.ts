@@ -3,11 +3,20 @@ import { FilePreviewModel } from '../file-preview.model';
 import { FilePickerAdapter } from '../file-picker.adapter';
 import { UploaderCaptions } from '../uploader-captions';
 import { HttpErrorResponse } from '@angular/common/http';
+import {PreviewLightboxComponent} from "./preview-lightbox/preview-lightbox.component";
+import {FilePreviewItemComponent} from "./file-preview-item/file-preview-item.component";
+import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'file-preview-container',
   templateUrl: './file-preview-container.component.html',
   styleUrls: ['./file-preview-container.component.scss'],
+  imports: [
+    PreviewLightboxComponent,
+    FilePreviewItemComponent,
+    NgForOf,
+    NgIf
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FilePreviewContainerComponent implements OnInit {

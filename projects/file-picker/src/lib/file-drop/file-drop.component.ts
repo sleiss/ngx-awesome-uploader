@@ -17,11 +17,14 @@ import {
   FileSystemDirectoryEntry
 } from './dom.types';
 import { UploaderCaptions } from '../uploader-captions';
+import {CloudIconComponent} from "../icons/cloud-icon/cloud-icon.component";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'file-drop',
   templateUrl: './file-drop.component.html',
-  styleUrls: ['./file-drop.component.scss']
+  styleUrls: ['./file-drop.component.scss'],
+  imports: [CloudIconComponent, NgIf]
 })
 export class FileComponent implements OnDestroy {
   @Input()

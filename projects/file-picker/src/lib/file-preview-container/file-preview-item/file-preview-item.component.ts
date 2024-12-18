@@ -7,11 +7,26 @@ import { GET_FILE_CATEGORY_TYPE, GET_FILE_TYPE, IS_IMAGE_FILE } from '../../file
 import {  Subscription } from 'rxjs';
 import { FilePickerAdapter, UploadResponse, UploadStatus } from '../../file-picker.adapter';
 import { UploaderCaptions } from '../../uploader-captions';
+import {NgClass, NgIf, NgStyle, NgTemplateOutlet} from "@angular/common";
+import {CheckmarkIconComponent} from "../../icons/checkmark-icon/checkmark-icon.component";
+import {RefreshIconComponent} from "./refresh-icon/refresh-icon.component";
+import {DownloadIconComponent} from "../../icons/download-icon/download-icon.component";
+import {CloseIconComponent} from "../../icons/close-icon/close-icon.component";
 
 @Component({
   selector: 'file-preview-item',
   templateUrl: './file-preview-item.component.html',
   styleUrls: ['./file-preview-item.component.scss'],
+  imports: [
+    NgClass,
+    CheckmarkIconComponent,
+    RefreshIconComponent,
+    DownloadIconComponent,
+    CloseIconComponent,
+    NgStyle,
+    NgIf,
+    NgTemplateOutlet
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FilePreviewItemComponent implements OnInit {
